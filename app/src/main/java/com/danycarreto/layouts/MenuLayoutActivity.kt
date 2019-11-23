@@ -5,6 +5,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import com.danycarreto.layouts.Alerts.AlertsActivity
 import com.danycarreto.layouts.ConstraintLayout.ConstraintLayoutActivity
 import com.danycarreto.layouts.FrameLayout.FrameLayoutActivity
 import com.danycarreto.layouts.RelativeLayout.MainActivity
@@ -24,30 +25,35 @@ class MenuLayoutActivity : AppCompatActivity() {
 
         btnRelativeLayout.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
-            intent.putExtra(EXTRA_NAME,"relative")
-            intent.putExtra(EXTRA_ID,1)
+            intent.putExtra(EXTRA_NAME, "relative")
+            intent.putExtra(EXTRA_ID, 1)
             //startActivity(intent)
             startActivityForResult(intent, REQUEST_RELATIVE)
         }
 
         btnFrameLayout.setOnClickListener {
             val intent = Intent(this, FrameLayoutActivity::class.java)
-            intent.putExtra(EXTRA_NAME,"frame")
-            intent.putExtra(EXTRA_ID,2)
-            startActivity(intent)
+            intent.putExtra(EXTRA_NAME, "frame")
+            intent.putExtra(EXTRA_ID, 2)
+            startActivityForResult(intent, REQUEST_FRAME)
         }
 
         btnConstraintLayout.setOnClickListener {
             val intent = Intent(this, ConstraintLayoutActivity::class.java)
-            intent.putExtra(EXTRA_NAME,"constraint")
-            intent.putExtra(EXTRA_ID,3)
+            intent.putExtra(EXTRA_NAME, "constraint")
+            intent.putExtra(EXTRA_ID, 3)
+            startActivityForResult(intent, REQUEST_CONSTRAINT)
+        }
+
+        btnAlerts.setOnClickListener {
+            val intent = Intent(this, AlertsActivity::class.java)
             startActivity(intent)
         }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if(resultCode == Activity.RESULT_OK) {
+        if (resultCode == Activity.RESULT_OK) {
             when (requestCode) {
                 REQUEST_RELATIVE, REQUEST_FRAME, REQUEST_CONSTRAINT -> {
                     Toast.makeText(
