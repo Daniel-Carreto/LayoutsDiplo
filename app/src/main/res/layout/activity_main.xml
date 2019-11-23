@@ -1,0 +1,32 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent">
+
+    <ImageView
+        android:id="@+id/imgBuilding"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:src="@drawable/imagen_edificio"
+        android:scaleType="fitCenter" />
+
+    <TextView
+        android:id="@+id/txt_credits"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Foto: Google"
+        android:layout_alignBottom="@+id/imgBuilding"/>
+
+    <TextView
+        android:id="@+id/txt_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Presentación de edificios"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:layout_below="@+id/imgBuilding"/>
+
+
+
+
+</RelativeLayout>
